@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Chatto Beta</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Chatto</h1>
+    </div>
+
+    <div class="chat">
+        <div id="sidebar" class="chat__sidebar">
+
+        </div>
+
+        <div class="chat__main">
+
+            <div id="messages" class="chat__messages"></div>
+
+            <!-- the form that takes in messages -->
+            <div class="compose">
+                <form id='message-form'>
+                    <input name="message" placeholder="Type a message..." required autocomplete="off">
+                    <button>Send</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- message templating to make printing easier  -->
+    <script id="message-template" type="text/html">
+        <div>
+            <p>
+                <span class="message__name">{{ username }}</span>
+                <span class="message__meta">{{ sentAt }}</span>
+            </p>
+            <p>{{ text }}</p>
+        </div>
+    </script>
+
+    <script id="sidebar-template" type="text/html">
+        <h2 class="room-title">{{room}}</h2>
+        <ul class="users">
+            {{#users}}
+                <li>{{username}}</li>
+            {{/users}}
+        </ul>
+    </script>
+
+    <!-- mustache does rendering -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <!-- moment does timestamp formatting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <!-- qs parses query strings -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script> <!-- websockets -->
+    <script src="js/chat.js"></script> <!-- importing js script -->
+
+
+
+    <!-- <div id="form">
+        
+    </div> -->
+
+</body>
+
+</html>
