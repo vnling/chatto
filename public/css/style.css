@@ -22,6 +22,10 @@ html {
     padding-bottom: 5px;
 }
 
+.index-header {
+    text-align: center;
+}
+
 /* displaying messages and sidebar */
 .chat {
     display: flex;
